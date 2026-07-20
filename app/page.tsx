@@ -204,7 +204,7 @@ export default function HomePage() {
           </div>
 
           {/* Projects */}
-          <div style={{ borderTop: "1px solid var(--color-stroke)" }} className="projects-section">
+          <div className="projects-section">
             {projects.map((project, i) => (
               <ProjectRow key={project.id} project={project} index={i} />
             ))}
