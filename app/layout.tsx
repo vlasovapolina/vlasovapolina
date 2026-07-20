@@ -5,6 +5,7 @@ import CustomCursor from "@/components/ui/CustomCursor";
 export const metadata: Metadata = {
   title: "Polina Vlasova — UI/UX & Graphic Designer",
   description: "UI/UX & Graphic Designer based in Warsaw. 9 years of experience across product design, brand identity, and web.",
+  icons: { icon: "/favicon.png" },
   openGraph: {
     title: "Polina Vlasova — UI/UX & Graphic Designer",
     description: "UI/UX & Graphic Designer based in Warsaw.",
