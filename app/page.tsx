@@ -121,6 +121,7 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
       paddingBottom: "48px",
     }}>
       {/* Meta */}
+      <div style={{ maxWidth: "920px" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
         <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)" }}>{project.name}</span>
         {project.client && (
@@ -137,6 +138,7 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
         {project.description}
       </p>
       {project.hasCase && <LearnMoreBtn />}
+      </div>
 
       {/* Image */}
       <div
