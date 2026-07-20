@@ -205,16 +205,16 @@ export default function HomePage() {
           .project-image { height: 232px !important; }
         }
 
-        /* Very small — show full bio with description */
+        /* Very small ≤480px — only headline, no description */
         @media (max-width: 480px) {
-          .mobile-bio-full { display: flex !important; }
-          .mobile-bio-short { display: none !important; }
-        }
-
-        /* Medium mobile — show only headline */
-        @media (min-width: 481px) and (max-width: 768px) {
           .mobile-bio-full { display: none !important; }
           .mobile-bio-short { display: block !important; }
+        }
+
+        /* Medium mobile 481–768px — full bio with description */
+        @media (min-width: 481px) and (max-width: 768px) {
+          .mobile-bio-full { display: flex !important; }
+          .mobile-bio-short { display: none !important; }
         }
 
         /* Desktop image height */
