@@ -105,19 +105,19 @@ export default function Header() {
             display: "none",
             width: "40px",
             height: "40px",
-            background: "none",
+            background: "var(--color-dark)",
             border: "none",
+            borderRadius: "50%",
             cursor: "pointer",
-            padding: "8px",
-            flexDirection: "column",
-            gap: "5px",
-            justifyContent: "center",
             alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
           }}
           aria-label="Open menu"
         >
-          <span style={{ display: "block", width: "24px", height: "1.5px", background: "var(--color-dark)" }} />
-          <span style={{ display: "block", width: "24px", height: "1.5px", background: "var(--color-dark)" }} />
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none">
+            <path d="M0 1H16M0 5H16M0 9H16" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+          </svg>
         </button>
       </header>
 
