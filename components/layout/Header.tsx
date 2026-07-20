@@ -45,22 +45,25 @@ export default function Header() {
               cursor: "pointer",
             }}
           >
-            {/* Placeholder — replace src with real images when ready */}
-            <div style={{
-              width: "100%",
-              height: "100%",
-              background: avatarHovered ? "#E8E4F0" : "#F0EDE8",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "10px",
-              color: "#999",
-              transition: "background 0.2s",
-              /* When images are ready, replace with:
-                 background-image: url(avatarHovered ? '/images/avatar-illustration.png' : '/images/avatar-photo.png')
-              */
-            }}>
-              {avatarHovered ? "✦" : "PV"}
+            <div style={{ width: "100%", height: "100%", position: "relative" }}>
+              <img
+                src="/images/avatar-photo.png"
+                alt="Polina Vlasova"
+                style={{
+                  position: "absolute", inset: 0, width: "100%", height: "100%",
+                  objectFit: "cover", transition: "opacity 0.25s",
+                  opacity: avatarHovered ? 0 : 1,
+                }}
+              />
+              <img
+                src="/images/avatar-illustration.png"
+                alt=""
+                style={{
+                  position: "absolute", inset: 0, width: "100%", height: "100%",
+                  objectFit: "cover", transition: "opacity 0.25s",
+                  opacity: avatarHovered ? 1 : 0,
+                }}
+              />
             </div>
           </div>
           <span style={{ fontSize: "13px", letterSpacing: "0.13px", color: "#282828" }}>

@@ -36,19 +36,12 @@ export default function MobileMenu({ isOpen, onClose, pathname }: Props) {
       }}>
         <Link href="/" onClick={onClose} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           {/* Illustration shows in mobile menu */}
-          <div style={{
-            width: "32px",
-            height: "32px",
-            borderRadius: "4px",
-            overflow: "hidden",
-            background: "#E8E4F0",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "10px",
-            color: "#999",
-          }}>
-            ✦
+          <div style={{ width: "32px", height: "32px", borderRadius: "4px", overflow: "hidden", flexShrink: 0 }}>
+            <img
+              src="/images/avatar-illustration.png"
+              alt=""
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
           </div>
           <span style={{ fontSize: "13px", color: "#282828" }}>
             <strong style={{ fontWeight: 500 }}>Polina Vlasova</strong>
