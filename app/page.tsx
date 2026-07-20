@@ -74,7 +74,7 @@ function LearnMoreBtn() {
       onMouseEnter={() => { setHovered(true); window.dispatchEvent(new Event("cursor:link")); }}
       onMouseLeave={() => { setHovered(false); window.dispatchEvent(new Event("cursor:default")); }}
       animate={hovered ? { y: -1 } : { y: 0 }}
-      transition={{ type: "spring", stiffness: 500, damping: 18 }}
+      transition={{ type: "spring", stiffness: 280, damping: 28 }}
     >
       <div style={{ position: "relative", padding: "4px 12px", borderRadius: "50px" }}>
         {hovered && (
@@ -82,7 +82,7 @@ function LearnMoreBtn() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ type: "spring", stiffness: 500, damping: 25 }}
+            transition={{ type: "spring", stiffness: 280, damping: 28 }}
             style={{
               position: "absolute", inset: 0,
               background: "#f0f0f0", borderRadius: "50px", zIndex: 0,
@@ -93,7 +93,7 @@ function LearnMoreBtn() {
           Learn more
           <motion.span
             animate={hovered ? { x: 3 } : { x: 0 }}
-            transition={{ type: "spring", stiffness: 500, damping: 18 }}
+            transition={{ type: "spring", stiffness: 280, damping: 28 }}
           >
             <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
               <path d="M6 1L9 4L6 7M1 4H9" stroke="#282828" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -133,7 +133,7 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
       >
         <motion.div
           animate={imgHovered ? { scale: 1.015 } : { scale: 1 }}
-          transition={{ type: "spring", stiffness: 200, damping: 30 }}
+          transition={{ type: "spring", stiffness: 150, damping: 28 }}
           style={{
             width: "100%", background: "var(--color-bg-image)",
             border: "1px solid var(--color-stroke)",

@@ -38,7 +38,7 @@ function NavLink({ href, label, active }: { href: string; label: string; active:
           whiteSpace: "nowrap",
         }}
         animate={hovered ? { y: -1 } : { y: 0 }}
-        transition={{ type: "spring", stiffness: 500, damping: 18 }}
+        transition={{ type: "spring", stiffness: 280, damping: 28 }}
       >
         {/* Background pill */}
         <AnimatePresence>
@@ -48,7 +48,7 @@ function NavLink({ href, label, active }: { href: string; label: string; active:
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ type: "spring", stiffness: 500, damping: 25 }}
+              transition={{ type: "spring", stiffness: 280, damping: 28 }}
               style={{
                 position: "absolute",
                 inset: 0,
