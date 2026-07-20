@@ -70,7 +70,7 @@ function LearnMoreBtn() {
   const [hovered, setHovered] = useState(false);
   return (
     <motion.div
-      style={{ display: "inline-flex", alignItems: "center", gap: "4px", marginBottom: "24px", position: "relative" }}
+      style={{ display: "inline-flex", alignItems: "center", marginBottom: "24px", position: "relative", marginLeft: "-12px" }}
       onMouseEnter={() => { setHovered(true); window.dispatchEvent(new Event("cursor:link")); }}
       onMouseLeave={() => { setHovered(false); window.dispatchEvent(new Event("cursor:default")); }}
       animate={hovered ? { y: -1 } : { y: 0 }}
@@ -135,10 +135,11 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
           animate={imgHovered ? { scale: 1.015 } : { scale: 1 }}
           transition={{ type: "spring", stiffness: 150, damping: 28 }}
           style={{
-            width: "100%", background: "var(--color-bg-image)",
+            width: "100%",
+            aspectRatio: "760 / 480",
+            background: "var(--color-bg-image)",
             border: "1px solid var(--color-stroke)",
             borderRadius: "12px",
-            transition: "border-color 0.2s",
             borderColor: imgHovered ? "#ccc" : "var(--color-stroke)",
           }}
           className="project-image"
@@ -221,10 +222,11 @@ export default function HomePage() {
               {[1, 2, 3, 4].map((_, i) => (
                 <div key={i} style={{
                   width: "100%",
+                  aspectRatio: "760 / 480",
                   background: "var(--color-bg-image)",
                   border: "1px solid var(--color-stroke)",
                   borderRadius: "12px",
-                }} className="project-image" />
+                }} />
               ))}
             </div>
           </div>
@@ -241,7 +243,6 @@ export default function HomePage() {
           .main-content { margin-left: 0 !important; padding-left: 20px !important; padding-right: 20px !important; }
           .mobile-bio { display: flex !important; }
           .projects-section { border-top: 1px solid var(--color-stroke); margin-top: 48px; }
-          .project-image { height: 232px !important; }
         }
         @media (max-width: 480px) {
           .mobile-bio-full { display: none !important; }
@@ -250,9 +251,6 @@ export default function HomePage() {
         @media (min-width: 481px) and (max-width: 768px) {
           .mobile-bio-full { display: flex !important; }
           .mobile-bio-short { display: none !important; }
-        }
-        @media (min-width: 769px) {
-          .project-image { height: 480px !important; }
         }
       `}</style>
     </>
