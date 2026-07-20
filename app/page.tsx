@@ -10,7 +10,7 @@ const projects = [
     name: "Redesign of the electronic waybill filing flow",
     client: "edn.by",
     year: "2025",
-    description: "Product: Web app (personal account). EDN is a cloud-based electronic document management service in Belarus, one of the country's key accredited EDI providers, with 80,000+ users. One of its core products is the electronic waybill (e-TTN).",
+    description: "Product: Web\u00a0app (personal\u00a0account). EDN is a\u00a0cloud-based electronic document management service in\u00a0Belarus, one of\u00a0the\u00a0country's key accredited EDI\u00a0providers, with\u00a080,000+ users. One of\u00a0its core products is\u00a0the\u00a0electronic waybill\u00a0(e-TTN).",
     hasCase: true,
     image: "/images/ednby_case_image.png",
   },
