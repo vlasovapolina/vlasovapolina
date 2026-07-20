@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
+import HoverLink from "@/components/ui/HoverLink";
 
 const projects = [
   {
@@ -46,17 +47,16 @@ function ContactsBlock() {
           <span>⊙</span> Warsaw, Poland
         </span>
         <Dot />
-        <a href="mailto:vlasovaapolina@gmail.com" style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-grey)" }}>
+        <HoverLink href="mailto:vlasovaapolina@gmail.com" style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-grey)" }}>
           vlasovaapolina@gmail.com
-        </a>
+        </HoverLink>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "6px", flexWrap: "wrap" }}>
         {contacts.map((link, i) => (
           <span key={link.label} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-            <a href={link.href} target="_blank" rel="noopener noreferrer"
-              style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-grey)" }}>
+            <HoverLink href={link.href} style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-grey)" }}>
               {link.label}
-            </a>
+            </HoverLink>
             {i < contacts.length - 1 && <Dot />}
           </span>
         ))}

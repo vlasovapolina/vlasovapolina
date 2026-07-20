@@ -1,5 +1,6 @@
 "use client";
 import Header from "@/components/layout/Header";
+import HoverLink from "@/components/ui/HoverLink";
 
 export default function AboutPage() {
   return (
@@ -93,14 +94,9 @@ export default function AboutPage() {
                 { label: "CV", href: "/cv.pdf" },
               ].map((link, i, arr) => (
                 <span key={link.label} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-grey)" }}
-                  >
+                  <HoverLink href={link.href} style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-grey)" }}>
                     {link.label}
-                  </a>
+                  </HoverLink>
                   {i < arr.length - 1 && (
                     <span style={{ width: "3px", height: "3px", borderRadius: "50%", background: "var(--color-grey-light)", flexShrink: 0 }} />
                   )}
@@ -108,9 +104,9 @@ export default function AboutPage() {
               ))}
             </div>
             <div style={{ textAlign: "right" }}>
-              <a href="mailto:vlasovaapolina@gmail.com" style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-grey)" }}>
+              <HoverLink href="mailto:vlasovaapolina@gmail.com" style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-grey)" }}>
                 vlasovaapolina@gmail.com
-              </a>
+              </HoverLink>
             </div>
           </div>
         </div>
