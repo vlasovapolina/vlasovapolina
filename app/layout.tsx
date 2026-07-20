@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 export const metadata: Metadata = {
   title: "Polina Vlasova — UI/UX & Graphic Designer",
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet" />
       </head>
       <body style={{ fontFamily: "'Inter Tight', system-ui, sans-serif" }}>
+        <CustomCursor />
         {children}
       </body>
     </html>
