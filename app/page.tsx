@@ -6,25 +6,31 @@ import HoverLink from "@/components/ui/HoverLink";
 
 const projects = [
   {
-    id: "project-01",
-    name: "Project Name",
+    id: "ednby",
+    name: "Redesign of the electronic waybill filing flow",
+    client: "edn.by",
     year: "2025",
-    description: "Started in graphic and brand design, moved into UI/UX over the last 5 years — with a background spanning brand identity, web, and product design. Worked with startups, SaaS, e-commerce, healthtech, and cultural projects. Lead projects from brief to handoff, collaborate closely with developers, product managers, and marketing teams.",
+    description: "Product: Web app (personal account). EDN is a cloud-based electronic document management service in Belarus, one of the country's key accredited EDI providers, with 80,000+ users. One of its core products is the electronic waybill (e-TTN).",
     hasCase: true,
+    image: "/images/ednby_case_image.png",
   },
   {
     id: "project-02",
     name: "Project Name",
+    client: null,
     year: "2025",
     description: "Started in graphic and brand design, moved into UI/UX over the last 5 years — with a background spanning brand identity, web, and product design. Worked with startups, SaaS, e-commerce, healthtech, and cultural projects. Lead projects from brief to handoff, collaborate closely with developers, product managers, and marketing teams.",
     hasCase: true,
+    image: null,
   },
   {
     id: "project-03",
     name: "Project Name",
+    client: null,
     year: "2025",
     description: "Started in graphic and brand design, moved into UI/UX over the last 5 years — with a background spanning brand identity, web, and product design. Worked with startups, SaaS, e-commerce, healthtech, and cultural projects. Lead projects from brief to handoff, collaborate closely with developers, product managers, and marketing teams.",
     hasCase: true,
+    image: null,
   },
 ];
 
@@ -114,22 +120,29 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
       paddingTop: "48px",
       paddingBottom: "48px",
     }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
+      {/* Meta */}
+      <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
         <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)" }}>{project.name}</span>
+        {project.client && (
+          <>
+            <Dot />
+            <span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.client}</span>
+          </>
+        )}
         <Dot />
         <span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.year}</span>
       </div>
+
       <p style={{ fontSize: "14px", lineHeight: "24px", color: "var(--color-grey)", marginBottom: "16px" }}>
         {project.description}
       </p>
       {project.hasCase && <LearnMoreBtn />}
 
-      {/* Project image with cursor:project hover */}
+      {/* Image */}
       <div
         onMouseEnter={() => { setImgHovered(true); window.dispatchEvent(new Event("cursor:project")); }}
         onMouseLeave={() => { setImgHovered(false); window.dispatchEvent(new Event("cursor:default")); }}
         style={{ position: "relative", borderRadius: "12px", overflow: "hidden" }}
-        className="project-image-wrap"
       >
         <motion.div
           animate={imgHovered ? { scale: 1.015 } : { scale: 1 }}
@@ -141,9 +154,18 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
             border: "1px solid var(--color-stroke)",
             borderRadius: "12px",
             borderColor: imgHovered ? "#ccc" : "var(--color-stroke)",
+            overflow: "hidden",
+            position: "relative",
           }}
-          className="project-image"
-        />
+        >
+          {project.image && (
+            <img
+              src={project.image}
+              alt={project.name}
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+          )}
+        </motion.div>
       </div>
     </div>
   );
