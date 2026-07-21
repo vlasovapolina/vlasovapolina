@@ -2,6 +2,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import Link from "next/link";
 import HoverLink from "@/components/ui/HoverLink";
 
 const projects = [
@@ -13,6 +16,7 @@ const projects = [
     description: "Product: Web\u00a0app (personal\u00a0account). EDN is a\u00a0cloud-based electronic document management service in\u00a0Belarus, one of\u00a0the\u00a0country's key accredited EDI\u00a0providers, with\u00a080,000+ users. One of\u00a0its core products is\u00a0the\u00a0electronic waybill\u00a0(e-TTN).",
     hasCase: true,
     image: "/images/ednby_case_image.svg",
+    caseUrl: "/work/ednby",
   },
   {
     id: "project-02",
@@ -22,6 +26,7 @@ const projects = [
     description: "Started in graphic and brand design, moved into UI/UX over the last 5 years — with a background spanning brand identity, web, and product design. Worked with startups, SaaS, e-commerce, healthtech, and cultural projects. Lead projects from brief to handoff, collaborate closely with developers, product managers, and marketing teams.",
     hasCase: true,
     image: null,
+    caseUrl: null,
   },
   {
     id: "project-03",
@@ -31,6 +36,7 @@ const projects = [
     description: "Started in graphic and brand design, moved into UI/UX over the last 5 years — with a background spanning brand identity, web, and product design. Worked with startups, SaaS, e-commerce, healthtech, and cultural projects. Lead projects from brief to handoff, collaborate closely with developers, product managers, and marketing teams.",
     hasCase: true,
     image: null,
+    caseUrl: null,
   },
 ];
 
@@ -72,9 +78,9 @@ function ContactsBlock() {
 }
 
 // Learn more button with spring hover
-function LearnMoreBtn() {
+function LearnMoreBtn({ href }: { href?: string }) {
   const [hovered, setHovered] = useState(false);
-  return (
+  const content = (
     <motion.div
       style={{ display: "inline-flex", alignItems: "center", marginBottom: "24px", position: "relative", marginLeft: "-12px" }}
       onMouseEnter={() => { setHovered(true); window.dispatchEvent(new Event("cursor:link")); }}
@@ -89,18 +95,12 @@ function LearnMoreBtn() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ type: "spring", stiffness: 280, damping: 28 }}
-            style={{
-              position: "absolute", inset: 0,
-              background: "#f0f0f0", borderRadius: "50px", zIndex: 0,
-            }}
+            style={{ position: "absolute", inset: 0, background: "#f0f0f0", borderRadius: "50px", zIndex: 0 }}
           />
         )}
         <span style={{ position: "relative", zIndex: 1, fontSize: "14px", fontWeight: 500, color: "var(--color-dark)", display: "flex", alignItems: "center", gap: "4px" }}>
           Learn more
-          <motion.span
-            animate={hovered ? { x: 3 } : { x: 0 }}
-            transition={{ type: "spring", stiffness: 280, damping: 28 }}
-          >
+          <motion.span animate={hovered ? { x: 3 } : { x: 0 }} transition={{ type: "spring", stiffness: 280, damping: 28 }}>
             <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
               <path d="M6 1L9 4L6 7M1 4H9" stroke="#282828" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -109,6 +109,8 @@ function LearnMoreBtn() {
       </div>
     </motion.div>
   );
+  if (href) return <Link href={href} style={{ textDecoration: "none" }}>{content}</Link>;
+  return content;
 }
 
 function ProjectRow({ project, index }: { project: typeof projects[0]; index: number }) {
@@ -143,7 +145,7 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
       <p style={{ fontSize: "14px", lineHeight: "24px", color: "var(--color-grey)", marginBottom: "16px" }}>
         {project.description}
       </p>
-      {project.hasCase && <LearnMoreBtn />}
+      {project.hasCase && <LearnMoreBtn href={project.caseUrl || undefined} />}
       </div>
 
       {/* Image */}
@@ -264,7 +266,6 @@ export default function HomePage() {
       </div>
 
       <style>{`
-        @media (max-width: 1024px) {
           .sidebar { width: 380px !important; padding-left: 40px !important; }
           .main-content { margin-left: 380px !important; padding-right: 40px !important; }
         }
@@ -285,6 +286,8 @@ export default function HomePage() {
           .mobile-bio-short { display: none !important; }
         }
       `}</style>
+      <Footer />
+      <ScrollToTop />
     </>
   );
 }

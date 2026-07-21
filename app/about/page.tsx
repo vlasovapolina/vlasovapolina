@@ -1,5 +1,7 @@
 "use client";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 import HoverLink from "@/components/ui/HoverLink";
 
 export default function AboutPage() {
@@ -123,6 +125,8 @@ export default function AboutPage() {
           .about-label { width: auto !important; }
         }
       `}</style>
+      <Footer />
+      <ScrollToTop />
     </>
   );
 }
