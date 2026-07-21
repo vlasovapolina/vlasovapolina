@@ -120,34 +120,51 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
       paddingTop: "48px",
       paddingBottom: "48px",
     }}>
-      {/* Image first */}
+      {/* Image first — clickable if case exists */}
       <div
         onMouseEnter={() => { setImgHovered(true); window.dispatchEvent(new Event("cursor:project")); }}
         onMouseLeave={() => { setImgHovered(false); window.dispatchEvent(new Event("cursor:default")); }}
         style={{ position: "relative", borderRadius: "12px", overflow: "hidden", marginBottom: "24px" }}
       >
-        <motion.div
-          animate={imgHovered ? { scale: 1.015 } : { scale: 1 }}
-          transition={{ type: "spring", stiffness: 150, damping: 28 }}
-          style={{
-            width: "100%",
-            aspectRatio: "760 / 480",
-            background: "var(--color-bg-image)",
-            border: "1px solid var(--color-stroke)",
-            borderRadius: "12px",
-            borderColor: imgHovered ? "#ccc" : "var(--color-stroke)",
-            overflow: "hidden",
-            position: "relative",
-          }}
-        >
-          {project.image && (
-            <img
-              src={project.image}
-              alt={project.name}
-              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-            />
-          )}
-        </motion.div>
+        {project.caseUrl ? (
+          <Link href={project.caseUrl} style={{ display: "block" }}>
+            <motion.div
+              animate={imgHovered ? { scale: 1.015 } : { scale: 1 }}
+              transition={{ type: "spring", stiffness: 150, damping: 28 }}
+              style={{
+                width: "100%", aspectRatio: "760 / 480",
+                background: "var(--color-bg-image)",
+                border: "1px solid var(--color-stroke)",
+                borderRadius: "12px",
+                borderColor: imgHovered ? "#ccc" : "var(--color-stroke)",
+                overflow: "hidden", position: "relative",
+              }}
+            >
+              {project.image && (
+                <img src={project.image} alt={project.name}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              )}
+            </motion.div>
+          </Link>
+        ) : (
+          <motion.div
+            animate={imgHovered ? { scale: 1.015 } : { scale: 1 }}
+            transition={{ type: "spring", stiffness: 150, damping: 28 }}
+            style={{
+              width: "100%", aspectRatio: "760 / 480",
+              background: "var(--color-bg-image)",
+              border: "1px solid var(--color-stroke)",
+              borderRadius: "12px",
+              borderColor: imgHovered ? "#ccc" : "var(--color-stroke)",
+              overflow: "hidden", position: "relative",
+            }}
+          >
+            {project.image && (
+              <img src={project.image} alt={project.name}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            )}
+          </motion.div>
+        )}
       </div>
 
       {/* Text below */}
