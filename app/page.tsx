@@ -120,37 +120,11 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
       paddingTop: "48px",
       paddingBottom: "48px",
     }}>
-      {/* Meta */}
-      <div style={{ maxWidth: "920px" }}>
-        <div style={{ marginBottom: "12px" }}>
-          {/* Desktop: all in one row */}
-          <div className="project-meta-desktop" style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "nowrap" }}>
-            <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)", whiteSpace: "nowrap" }}>{project.name}</span>
-            {project.client && <><Dot /><span style={{ fontSize: "14px", color: "var(--color-grey)", whiteSpace: "nowrap" }}>{project.client}</span></>}
-            <Dot />
-            <span style={{ fontSize: "14px", color: "var(--color-grey)", whiteSpace: "nowrap" }}>{project.year}</span>
-          </div>
-          {/* Mobile: title on first line, client+year on second */}
-          <div className="project-meta-mobile" style={{ display: "none" }}>
-            <div style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)", marginBottom: "2px" }}>{project.name}</div>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              {project.client && <><span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.client}</span><Dot /></>}
-              <span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.year}</span>
-            </div>
-          </div>
-        </div>
-
-      <p style={{ fontSize: "14px", lineHeight: "24px", color: "var(--color-grey)", marginBottom: "16px" }}>
-        {project.description}
-      </p>
-      {project.hasCase && <LearnMoreBtn href={project.caseUrl || undefined} />}
-      </div>
-
-      {/* Image */}
+      {/* Image first */}
       <div
         onMouseEnter={() => { setImgHovered(true); window.dispatchEvent(new Event("cursor:project")); }}
         onMouseLeave={() => { setImgHovered(false); window.dispatchEvent(new Event("cursor:default")); }}
-        style={{ position: "relative", borderRadius: "12px", overflow: "hidden" }}
+        style={{ position: "relative", borderRadius: "12px", overflow: "hidden", marginBottom: "24px" }}
       >
         <motion.div
           animate={imgHovered ? { scale: 1.015 } : { scale: 1 }}
@@ -174,6 +148,29 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
             />
           )}
         </motion.div>
+      </div>
+
+      {/* Text below */}
+      <div style={{ maxWidth: "920px" }}>
+        <div style={{ marginBottom: "12px" }}>
+          <div className="project-meta-desktop" style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "nowrap" }}>
+            <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)", whiteSpace: "nowrap" }}>{project.name}</span>
+            {project.client && <><Dot /><span style={{ fontSize: "14px", color: "var(--color-grey)", whiteSpace: "nowrap" }}>{project.client}</span></>}
+            <Dot />
+            <span style={{ fontSize: "14px", color: "var(--color-grey)", whiteSpace: "nowrap" }}>{project.year}</span>
+          </div>
+          <div className="project-meta-mobile" style={{ display: "none" }}>
+            <div style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)", marginBottom: "2px" }}>{project.name}</div>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              {project.client && <><span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.client}</span><Dot /></>}
+              <span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.year}</span>
+            </div>
+          </div>
+        </div>
+        <p style={{ fontSize: "14px", lineHeight: "24px", color: "var(--color-grey)", marginBottom: "16px" }}>
+          {project.description}
+        </p>
+        {project.hasCase && <LearnMoreBtn href={project.caseUrl || undefined} />}
       </div>
     </div>
   );
