@@ -266,6 +266,7 @@ export default function HomePage() {
       </div>
 
       <style>{`
+        @media (max-width: 1024px) {
           .sidebar { width: 380px !important; padding-left: 40px !important; }
           .main-content { margin-left: 380px !important; padding-right: 40px !important; }
         }
