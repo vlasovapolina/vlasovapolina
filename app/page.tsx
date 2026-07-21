@@ -122,20 +122,23 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
     }}>
       {/* Meta */}
       <div style={{ maxWidth: "920px" }}>
-      <div style={{ marginBottom: "12px" }}>
-        <div style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)", marginBottom: "4px" }}>
-          {project.name}
+        <div style={{ marginBottom: "12px" }}>
+          {/* Desktop: all in one row */}
+          <div className="project-meta-desktop" style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "nowrap" }}>
+            <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)", whiteSpace: "nowrap" }}>{project.name}</span>
+            {project.client && <><Dot /><span style={{ fontSize: "14px", color: "var(--color-grey)", whiteSpace: "nowrap" }}>{project.client}</span></>}
+            <Dot />
+            <span style={{ fontSize: "14px", color: "var(--color-grey)", whiteSpace: "nowrap" }}>{project.year}</span>
+          </div>
+          {/* Mobile: title on first line, client+year on second */}
+          <div className="project-meta-mobile" style={{ display: "none" }}>
+            <div style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)", marginBottom: "2px" }}>{project.name}</div>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              {project.client && <><span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.client}</span><Dot /></>}
+              <span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.year}</span>
+            </div>
+          </div>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
-          {project.client && (
-            <>
-              <span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.client}</span>
-              <Dot />
-            </>
-          )}
-          <span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.year}</span>
-        </div>
-      </div>
 
       <p style={{ fontSize: "14px", lineHeight: "24px", color: "var(--color-grey)", marginBottom: "16px" }}>
         {project.description}
@@ -270,6 +273,8 @@ export default function HomePage() {
           .main-content { margin-left: 0 !important; padding-left: 20px !important; padding-right: 20px !important; }
           .mobile-bio { display: flex !important; }
           .projects-section { border-top: 1px solid var(--color-stroke); margin-top: 48px; }
+          .project-meta-desktop { display: none !important; }
+          .project-meta-mobile { display: block !important; }
         }
         @media (max-width: 480px) {
           .mobile-bio-full { display: none !important; }
