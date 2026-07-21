@@ -12,6 +12,9 @@ export default function CustomCursor() {
   const raf = useRef<number>(0);
 
   useEffect(() => {
+    // Don't activate on touch/coarse pointer devices
+    if (window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
+
     // Detect non-touch device by first mousemove
     const onFirstMouseMove = () => {
       setIsTouch(false);

@@ -122,16 +122,19 @@ function ProjectRow({ project, index }: { project: typeof projects[0]; index: nu
     }}>
       {/* Meta */}
       <div style={{ maxWidth: "920px" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
-        <span style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)" }}>{project.name}</span>
-        {project.client && (
-          <>
-            <Dot />
-            <span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.client}</span>
-          </>
-        )}
-        <Dot />
-        <span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.year}</span>
+      <div style={{ marginBottom: "12px" }}>
+        <div style={{ fontSize: "14px", fontWeight: 500, color: "var(--color-dark)", marginBottom: "4px" }}>
+          {project.name}
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+          {project.client && (
+            <>
+              <span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.client}</span>
+              <Dot />
+            </>
+          )}
+          <span style={{ fontSize: "14px", color: "var(--color-grey)" }}>{project.year}</span>
+        </div>
       </div>
 
       <p style={{ fontSize: "14px", lineHeight: "24px", color: "var(--color-grey)", marginBottom: "16px" }}>
