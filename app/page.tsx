@@ -2,8 +2,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import ScrollToTop from "@/components/ui/ScrollToTop";
 import Link from "next/link";
 import HoverLink from "@/components/ui/HoverLink";
 
@@ -287,8 +285,6 @@ export default function HomePage() {
           .mobile-bio-short { display: none !important; }
         }
       `}</style>
-      <Footer />
-      <ScrollToTop />
     </>
   );
 }
