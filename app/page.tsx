@@ -214,7 +214,7 @@ export default function HomePage() {
         </div>
 
         {/* RIGHT CONTENT */}
-        <div style={{ marginLeft: "515px", flex: 1, paddingLeft: "24px", paddingRight: "80px" }} className="main-content">
+        <div style={{ marginLeft: "515px", flex: 1, paddingLeft: "84px", paddingRight: "80px" }} className="main-content">
 
           {/* Mobile bio */}
           <div className="mobile-bio" style={{ display: "none", paddingTop: "52px", flexDirection: "column", gap: "48px" }}>
@@ -266,7 +266,7 @@ export default function HomePage() {
       <style>{`
         @media (max-width: 1024px) {
           .sidebar { width: 380px !important; padding-left: 40px !important; }
-          .main-content { margin-left: 380px !important; padding-right: 40px !important; }
+          .main-content { margin-left: 380px !important; padding-left: 52px !important; padding-right: 40px !important; }
         }
         @media (max-width: 768px) {
           .sidebar { display: none !important; }
